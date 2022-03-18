@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="." method="POST">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Title">
+    <textarea name="content" placeholder="Content"></textarea>
+    <input type="submit" value="Create article">
+</form>
+{% if object %}
+<h3>Статья успешно создана</h3>
+<a href="/articles/{{ object.id }}/">{{ object.title }}</a>
+{% endif %}
+{% endblock content %}

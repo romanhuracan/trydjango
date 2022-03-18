@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from articles.models import Article
+from time import time
 
 
 def article_search_view(request):
@@ -13,6 +14,14 @@ def article_search_view(request):
         article = Article.objects.get(id=query)
     context = {'object': article}
     return render(request, 'articles/search.html', context=context)
+
+
+def article_create_view(request):
+    context = {}
+    if request.method == 'POST':
+        title, content = map(request.POST.get, ['title', 'content'])
+        context['object'] = Article.objects.create(title=title, content=content)
+    return render(request, 'articles/create.html', context=context)
 
 
 def article_detail_view(request, id=None):
