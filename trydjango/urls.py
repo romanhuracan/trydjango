@@ -18,6 +18,7 @@ from django.urls import path
 
 from accounts.views import (
     login_view,
+    logout_view,
 )
 from .views import home_view
 from articles.views import (
@@ -29,6 +30,7 @@ from articles.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login_view),
+    path('logout/', logout_view),
     path('', home_view),
     path('articles/', article_search_view),
     path('articles/create/', article_create_view),
