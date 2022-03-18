@@ -1,7 +1,7 @@
+from webbrowser import get
 from django.shortcuts import render
 
 from articles.models import Article
-from time import time
 
 
 def article_search_view(request):
