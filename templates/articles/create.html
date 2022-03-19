@@ -6,8 +6,8 @@
     {{ form.as_p }}
     <input type="submit" value="Create article">
 </form>
-{% if object %}
+{% if obj %}
 <h3>Статья успешно создана</h3>
-<a href="/articles/{{ object.id }}/">{{ object.title }}</a>
+<a href="/articles/{{ obj.id }}/">{{ obj.title }}</a>
 {% endif %}
 {% endblock content %}
